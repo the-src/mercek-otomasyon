@@ -21,7 +21,7 @@ def bilgiler():
 
 def login():
     global driver
-    driver = webdriver.Chrome(executable_path="./chromedriver")
+    driver = webdriver.Chrome(executable_path="./chromedriver.exe")
     driver.get("https://mercek.itu.edu.tr")
     sleep(1)
     usernamefind = driver.find_element_by_xpath('//*[@id="ContentPlaceHolder1_tbUserName"]').send_keys(username)

@@ -32,7 +32,7 @@ def login():
 
 
 #Nöbet tipi seçimine göre rapor belirleme
-def seçim():
+def secim():
     global cevap
     print("\nNöbet tipi seçiniz:\n1)Danışma+Genel İş\n2)Danışma\n3)Operatör\n")
     cevap = int(input("1, 2, 3 şeklinde giriş yapınız:\t"))
@@ -60,7 +60,7 @@ def submit():
 
 
 #Execution
-seçim()
+secim()
 bilgiler()
 login()
 raporyazma()

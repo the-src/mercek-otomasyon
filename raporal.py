@@ -6,7 +6,7 @@ from getpass import getpass
 #Nöbet raporları
 dagenel = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Genel işe gidildi. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
 da = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
-op = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
+op = """Arayan kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
 
 
 #Kullanıcı giriş yapar.

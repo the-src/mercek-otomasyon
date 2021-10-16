@@ -120,8 +120,8 @@ def todo():
                 devral()
                 break
             case 5:
-                login()
                 seçim()
+                login()
                 devret()
                 break
             case _:

@@ -48,10 +48,11 @@ def imha():
         '//*[@id="ctl00_ContentPlaceHolder1_lbIsEkle"]').click()
     sleep(1)
     driver.find_element_by_xpath(
-        '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]').click()
-    sleep(1)
-    driver.find_element_by_xpath(
         '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]/option[9]').click()
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_tbRutinIs"]').send_keys('Yapıldı.')
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_btRutinIsEkle"]').click()
 
 
 def tutanak():
@@ -59,10 +60,11 @@ def tutanak():
         '//*[@id="ctl00_ContentPlaceHolder1_lbIsEkle"]').click()
     sleep(1)
     driver.find_element_by_xpath(
-        '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]').click()
-    sleep(1)
-    driver.find_element_by_xpath(
         '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]/option[6]').click()
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_tbRutinIs"]').send_keys('Yapıldı.')
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_btRutinIsEkle"]').click()
 
 
 def temizlik():
@@ -70,13 +72,16 @@ def temizlik():
         '//*[@id="ctl00_ContentPlaceHolder1_lbIsEkle"]').click()
     sleep(1)
     driver.find_element_by_xpath(
-        '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]').click()
-    sleep(1)
-    driver.find_element_by_xpath(
         '//*[@id="ctl00_ContentPlaceHolder1_ddlRutinIsTipi"]/option[10]').click()
-# Otomatik rapor yazar
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_tbRutinIs"]').send_keys('Yapıldı.')
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_btRutinIsEkle"]').click()
+
+
 def devral():
-    driver.find_element_by_xpath('')
+    driver.find_element_by_xpath('//*[@id="ctl00_ContentPlaceHolder1_gvSonrakiNobetci_ctl03_btnDevral"]/img').click()
+
 
 def devret():
     driver.find_element_by_xpath('//*[@id="lnkBtnDevret"]').click()
@@ -94,25 +99,35 @@ def devret():
 
 
 def todo():
-    print('1)Kağıt imha rutini\n2)Tutanak toplanması rutini\n3)Temizlik rutini\n4)Nöbet devral\n5)Nöbet devret\n')
-    job = int(input("\nNe yapılacak --->  \n\n"))
+    print('\n\n1)Kağıt imha rutini\n2)Tutanak toplanması rutini\n3)Temizlik rutini\n4)Nöbet devral\n5)Nöbet devret\n')
+    job = int(input("\nNe yapılacak --->  "))
     for job in [1, 2, 3, 4]:
         match job:
             case 1:
+                login()
                 imha()
+                break
             case 2:
+                login()
                 tutanak()
+                break
             case 3:
+                login()
                 temizlik()
+                break
             case 4:
+                login()
                 devral()
+                break
             case 5:
+                login()
                 seçim()
                 devret()
+                break
             case _:
                 print("Belirtilen aralıkta seçim yapınız!!")
+                break
 
 
 # Execution
 todo()
-login()

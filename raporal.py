@@ -101,7 +101,7 @@ def devret():
 def todo():
     print('\n\n1)Kağıt imha rutini\n2)Tutanak toplanması rutini\n3)Temizlik rutini\n4)Nöbet devral\n5)Nöbet devret\n')
     job = int(input("\nNe yapılacak --->  "))
-    for job in [1, 2, 3, 4]:
+    for job in [1, 2, 3, 4, 5]:
         match job:
             case 1:
                 login()

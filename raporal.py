@@ -3,7 +3,7 @@ from time import sleep
 from pwinput import pwinput as pw
 import chromedriver_autoinstaller
 
-chromedriver_autoinstaller.install()
+chromedriver_autoinstaller.install('.')
 
 # Nöbet raporları
 dagenel = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Genel işe gidildi. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""

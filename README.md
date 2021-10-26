@@ -3,8 +3,6 @@
 İTÜ BİDB AÖ'leri için kolaylık sağlamak amacıyla yazılmıştır.
 Programın çalışması için bilgisayarınızda [Google Chrome](https://www.google.com/intl/tr_tr/chrome/) ve [Python](https://www.python.org/downloads/) yüklü olması gerekmektedir.
 
-Ayrıca script Windows işletim sistemi kullananlar için yazılmıştır. Linux kullananlar *raporal.py* dosyasının 24. satırındaki **./chromedriver.exe** yazan kısmı **./chromedriver** olarak değiştirmelidir.
-
 Yazılımla ilgili tüm sorularınız için [bana ulaşabilirsiniz.](mailto:saraclioglu20@itu.edu.tr)
 
 

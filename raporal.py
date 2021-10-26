@@ -1,7 +1,9 @@
 from selenium import webdriver
 from time import sleep
-from getpass import getpass
+from pwinput import pwinput as pw
+import chromedriver_autoinstaller
 
+chromedriver_autoinstaller.install()
 
 # Nöbet raporları
 dagenel = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Genel işe gidildi. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
@@ -12,7 +14,7 @@ op = """Arayan kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöb
 # Kullanıcı giriş yapar.
 try:
     username = input("\nKullanıcı adınız: ")
-    password = getpass("Şifre: ")
+    password = pw("Şifre: ")
 except:
     print("\n\n!!! ERROR !!!")
     quit()
@@ -20,7 +22,7 @@ except:
 
 def login():
     global driver
-    driver = webdriver.Chrome(executable_path="./chromedriver.exe")
+    driver = webdriver.Chrome()
     driver.get("https://mercek.itu.edu.tr")
     sleep(1)
     usernamefind = driver.find_element_by_xpath(

@@ -1,3 +1,4 @@
+from typing_extensions import runtime
 from selenium import webdriver
 from time import sleep
 from pwinput import pwinput as pw
@@ -7,8 +8,7 @@ chromedriver_autoinstaller.install('.')
 
 # Nöbet raporları
 dagenel = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Genel işe gidildi. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
-da = """Gelen kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
-op = """Arayan kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
+rutin = """kullanıcılarla ilgilenildi. Rutinler alındı. Bir sonraki nöbetçilerin nöbete hazır oldukları teyit edildi."""
 
 
 # Kullanıcı giriş yapar.
@@ -37,9 +37,17 @@ def login():
 
 # Nöbet tipi seçimine göre rapor belirleme
 def seçim():
-    global cevap
+    global cevap, gelen
     print("\nNöbet tipi seçiniz:\n1)Danışma+Genel İş\n2)Danışma\n3)Operatör\n")
     cevap = int(input("1, 2, 3 şeklinde giriş yapınız:\t"))
+    if cevap == 3:
+        input("Gelen kullanıcı oldu mu? [E/h]: ")
+        if input in ["E", "e", "\ne", "\nE"]:
+            gelen = True
+        elif input in ["H", "h", "\nh", "\nH"]:
+            gelen = False
+        else:
+            print('Hatalı seçim yaptınız, Evet için "E", hayır için "h" yazınız.')
     if cevap not in (1, 2, 3):
         print("\n"+"!"*3+" Yanlış numara tuşladınız. "+"!"*3)
         quit()
@@ -82,7 +90,8 @@ def temizlik():
 
 
 def devral():
-    driver.find_element_by_xpath('//*[@id="ctl00_ContentPlaceHolder1_gvSonrakiNobetci_ctl03_btnDevral"]/img').click()
+    driver.find_element_by_xpath(
+        '//*[@id="ctl00_ContentPlaceHolder1_gvSonrakiNobetci_ctl03_btnDevral"]/img').click()
 
 
 def devret():
@@ -93,9 +102,12 @@ def devret():
     if cevap == 1:
         rapor.send_keys(dagenel)
     elif cevap == 2:
-        rapor.send_keys(da)
+        rapor.send_keys("Gelen " + rutin)
     elif cevap == 3:
-        rapor.send_keys(op)
+        if gelen:
+            rapor.send_keys("Arayan ve gelen " + rutin)
+        else:
+            rapor.send_keys("Arayan " + rutin)
     driver.find_element_by_xpath(
         '//*[@id="ctl00_ContentPlaceHolder1_lbKaydet"]').click()
 

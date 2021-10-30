@@ -39,12 +39,12 @@ def login():
 def seçim():
     global cevap, gelen
     print("\nNöbet tipi seçiniz:\n1)Danışma+Genel İş\n2)Danışma\n3)Operatör\n")
-    cevap = int(input("1, 2, 3 şeklinde giriş yapınız:\t"))
+    cevap = int(input("1, 2, 3 şeklinde giriş yapınız:  "))
     if cevap == 3:
-        input("Gelen kullanıcı oldu mu? [E/h]: ")
-        if input in ["E", "e", "\ne", "\nE"]:
+        gelen_oldu_mu = input("Gelen kullanıcı oldu mu? [E/h]: ")
+        if gelen_oldu_mu in ["E", "e", "\ne", "\nE"]:
             gelen = True
-        elif input in ["H", "h", "\nh", "\nH"]:
+        elif gelen_oldu_mu in ["H", "h", "\nh", "\nH"]:
             gelen = False
         else:
             print('Hatalı seçim yaptınız, Evet için "E", hayır için "h" yazınız.')

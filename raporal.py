@@ -1,4 +1,3 @@
-from typing_extensions import runtime
 from selenium import webdriver
 from time import sleep
 from pwinput import pwinput as pw
@@ -134,7 +133,8 @@ def todo():
             devret()
         case _:
             print("Belirtilen aralıkta seçim yapınız!!")
-
-
+    print("Çıkış yapmak için CTRL^C kombinasyonunu kullanın!\n")
+    todo()
 # Execution
 todo()
+
